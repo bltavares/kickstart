@@ -24,5 +24,15 @@ git clone https://github.com/bltavares/kickstart.git $installation_path
 sudo ln -s $installation_path/bin/kickstart /usr/local/bin/kickstart
 ```
 
+### Usage
+
+#### create
+Creates a sample project structure
+
+```bash
+kickstart create [folder name or current folder]
+```
+
+
 ### Thanks
 This project was inspired on [sunzi](https://github.com/kenn/sunzi)
