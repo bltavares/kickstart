@@ -27,7 +27,7 @@ kickstart.add_to_profile.d() {
   [ ! -f files/$file ] && kickstart.info "File files/$file not found" && exit 1
 
   cp files/$file /etc/profile.d/$file
-  grep -q $file /etc/zshenv 2>&1 || ( echo "[[ -f /etc/profile.d/$file ]] && source /etc/profile.d/$file" >> /etc/zshenv )
+  grep -q $file /etc/zshenv 2>/dev/null || ( echo "[[ -f /etc/profile.d/$file ]] && source /etc/profile.d/$file" >> /etc/zshenv )
 }
 
 for recipe in recipes/kickstart/*; do
