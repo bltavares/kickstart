@@ -75,6 +75,5 @@ Deploy two roles on a host with an alternative port
 kickstart deploy "-p 2222 vagrant@localhost" nodejs redis
 ```
 
-
 ### Thanks
 This project was inspired on [sunzi](https://github.com/kenn/sunzi)
