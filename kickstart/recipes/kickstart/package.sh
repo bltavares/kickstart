@@ -6,7 +6,7 @@ elif which yum >/dev/null 2>&1; then
 fi
 
 if [ "$kickstart_pkg" = '' ]; then
-  echo 'kickstart only supports apt-get or yum!' >&2
+  kickstart.info 'kickstart only supports apt-get or yum!'
   exit 1
 fi
 
@@ -21,10 +21,10 @@ kickstart.package.installed() {
 
 kickstart.package.install() {
   if kickstart.package.installed "$@"; then
-    echo "$@ already installed"
+    kickstart.info "$@ already installed"
     return 1
   else
-    echo "No packages found matching $@. Installing..."
+    kickstart.info "No packages found matching $@. Installing..."
     kickstart.mute "$kickstart_pkg -y install $@"
     return 0
   fi
