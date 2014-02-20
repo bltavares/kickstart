@@ -30,6 +30,10 @@ kickstart.add_to_profile.d() {
   grep -q $file /etc/zshenv 2>/dev/null || ( echo "[[ -f /etc/profile.d/$file ]] && source /etc/profile.d/$file" >> /etc/zshenv )
 }
 
+kickstart.command_exists() {
+  which $1 >/dev/null 2>&1
+}
+
 for recipe in recipes/kickstart/*; do
   source $recipe
 done
