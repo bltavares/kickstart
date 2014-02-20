@@ -1,0 +1,4 @@
+#!/bin/bash
+
+root_dir=`kickstart root-dir`
+echo "`ls $root_dir/lib | cut -f2 -d'-'`"

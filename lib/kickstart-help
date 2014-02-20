@@ -1,0 +1,10 @@
+#!/bin/bash
+
+echo "kickstart"
+echo "Bash provisioning support"
+echo
+echo "Available commands are:"
+
+kickstart commands
+echo
+echo "Happy hacking (:"
