@@ -82,5 +82,12 @@ Deploy localy a recipe that is not over ssh. It basicaly compile and run the ins
 kickstart local [roles ...]
 ```
 
+#### infect
+Infect your shell with the kickstart utility functions
+
+```bash
+eval "$(kickstart infect)"
+```
+
 ### Thanks
 This project was inspired on [sunzi](https://github.com/kenn/sunzi)
