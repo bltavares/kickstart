@@ -1,0 +1,18 @@
+#!/bin/bash -e
+
+target=$1
+[ "$target" ] || echo "Please, provide an ssh target"
+shift
+
+remote_command=$(
+cat <<CMD
+  [ -d ~/kickstart ] && rm -rf ~/kickstart
+  mkdir ~/kickstart
+  cd ~/kickstart
+  tar xz
+  bash install.sh
+CMD
+)
+
+kickstart compile $@
+tar chz -C compile . | ssh $target "$remote_command"

@@ -55,6 +55,26 @@ Compile the current workspace into the folder to be packaged on deploy
 kickstart compile
 ```
 
+#### deploy
+Takes an host target and deploy the compiled code on it.
+
+```bash
+kickstart deploy [target] [roles ...]
+```
+
+##### Examples
+Deploy a role on a host
+
+```bash
+kickstart deploy vagrant@localhost nodejs
+```
+
+Deploy two roles on a host with an alternative port
+
+```bash
+kickstart deploy "-p 2222 vagrant@localhost" nodejs redis
+```
+
 
 ### Thanks
 This project was inspired on [sunzi](https://github.com/kenn/sunzi)
