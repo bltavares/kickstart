@@ -75,5 +75,12 @@ Deploy two roles on a host with an alternative port
 kickstart deploy "-p 2222 vagrant@localhost" nodejs redis
 ```
 
+#### local
+Deploy localy a recipe that is not over ssh. It basicaly compile and run the install script
+
+```bash
+kickstart local [roles ...]
+```
+
 ### Thanks
 This project was inspired on [sunzi](https://github.com/kenn/sunzi)
