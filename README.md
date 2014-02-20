@@ -48,5 +48,13 @@ kickstart docker-ssh
 ```
 
 
+#### compile
+Compile the current workspace into the folder to be packaged on deploy
+
+```bash
+kickstart compile
+```
+
+
 ### Thanks
 This project was inspired on [sunzi](https://github.com/kenn/sunzi)

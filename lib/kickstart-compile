@@ -1,0 +1,47 @@
+#!/bin/bash -e
+
+module_loading=$(cat <<MODULE
+current_dir=\$(pwd)
+for module in modules/*; do
+  cd \$module
+  source install.sh
+  cd \$current_dir
+done
+MODULE
+)
+
+clean_up_compile_folder() {
+  [ -d compile ] && rm -rf compile
+  mkdir -p compile
+}
+
+link_folder() {
+  [[ -h compile/$1 ]] || ln -s ../$1 compile/$1
+}
+
+link_modules() {
+  mkdir -p compile/modules
+
+  ln -s `kickstart root-dir`/kickstart compile/modules/kickstart
+
+  if [ -d modules ]; then
+    for module in modules/*; do
+      ln -s ../../modules/$module compile/modules/$module
+    done
+  fi
+}
+
+compile_install() {
+  cat <( echo -e "$module_loading" ) install.sh > compile/install.sh
+  for role in $@; do
+    echo "source roles/${role}.sh" >> compile/install.sh
+  done
+}
+
+clean_up_compile_folder
+link_folder files
+link_folder recipes
+link_folder roles
+link_modules
+compile_install $@
+echo -e "\necho Done" >> compile/install.sh
