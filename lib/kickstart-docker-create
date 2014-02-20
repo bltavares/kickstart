@@ -1,0 +1,26 @@
+#!/bin/bash -e
+
+pull_sshd_image() {
+  docker pull moul/sshd
+}
+
+remove_running_sshd() {
+  runnig_sshd=$(docker ps -q moul/sshd)
+  [ "$runnig_sshd" ] && docker kill "$runnig_sshd" && docker rm "$runnig_sshd"
+  true
+}
+
+run_sshd() {
+  id=$(docker run -p 22 -d moul/sshd)
+
+  [ -z "$id" ] && echo "Docker container did't start" && return 1
+
+  echo "Connect using root:root on " `docker port $id 22`
+  port=`docker port $id 22 | cut -f 2 -d :`
+  echo For ssh: ssh -p $port root@localhost
+  echo For deploy: kickstart deploy \"-p $port root@localhost\" '[roles]'
+}
+
+pull_sshd_image
+remove_running_sshd
+run_sshd

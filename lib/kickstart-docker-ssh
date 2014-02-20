@@ -1,0 +1,7 @@
+#!/bin/bash -e
+
+runnig_sshd=$(docker ps -q moul/sshd)
+[ -z "$runnig_sshd" ] && echo "Docker container not created. Run \`kickstart docker-create\` to get one" && exit 1
+
+port=`docker port $runnig_sshd 22 | cut -f 2 -d :`
+exec ssh -p $port root@localhost

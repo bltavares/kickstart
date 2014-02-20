@@ -33,6 +33,20 @@ Creates a sample project structure
 kickstart create [folder name or current folder]
 ```
 
+#### docker-create
+Creates a docker container with a running sshd to test recipes
+
+```bash
+kickstart docker-create
+```
+
+#### docker-ssh
+Access the created docker container over ssh. A simple utility that looks up for the port the docker is bound.
+
+```bash
+kickstart docker-ssh
+```
+
 
 ### Thanks
 This project was inspired on [sunzi](https://github.com/kenn/sunzi)
