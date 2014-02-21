@@ -9,7 +9,7 @@ kickstart.download.stream() {
   elif [ `which wget` ]; then
     wget -qO - $1
   else
-    kickstart.info "No download application found"
+    kickstart.info "No download application found, consider installing curl or wget"
     exit 1
   fi
 }
