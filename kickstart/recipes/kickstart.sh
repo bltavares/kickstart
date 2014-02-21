@@ -27,14 +27,6 @@ kickstart.mute() {
   return $?
 }
 
-kickstart.add_to_profile.d() {
-  file=$1
-  [ ! -f files/$file ] && kickstart.info "File files/$file not found" && exit 1
-
-  cp files/$file /etc/profile.d/$file
-  grep -q $file /etc/zshenv 2>/dev/null || ( echo "[[ -f /etc/profile.d/$file ]] && source /etc/profile.d/$file" >> /etc/zshenv )
-}
-
 kickstart.command_exists() {
   which $1 >/dev/null 2>&1
 }
