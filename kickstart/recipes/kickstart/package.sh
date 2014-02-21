@@ -1,22 +1,15 @@
-# Set $kickstart_pkg to "apt-get" or "yum", or abort.
-if which apt-get >/dev/null 2>&1; then
-  export kickstart_pkg=apt-get
-elif which yum >/dev/null 2>&1; then
-  export kickstart_pkg=yum
-fi
-
-if [ "$kickstart_pkg" = '' ]; then
-  kickstart.info 'kickstart only supports apt-get or yum!'
-  exit 1
-fi
+kickstart.package.manager() {
+  kickstart.command_exists apt-get && echo "apt-get" && return 0
+  kickstart.command_exists yum && echo "yum" && return 0
+  kickstart.command_exists brew && echo "brew" && return 0
+  kickstart.info "kickstart supports apt-get, yum or brew" && exit 1
+}
 
 kickstart.package.installed() {
-  if [ "$kickstart_pkg" = 'apt-get' ]; then
-    dpkg -s $@ >/dev/null 2>&1
-  elif [ "$kickstart_pkg" = 'yum' ]; then
-    rpm -qa | grep $@ >/dev/null
-  fi
-  return $?
+  local pkg_manager=`kickstart.package.manager`
+  [ $pkg_manager = 'apt-get' ] && dpkg -s $@ >/dev/null 2>&1 && return $?
+  [ $pkg_manager = 'yum' ] && rpm -qa | grep -q $@ && return $?
+  [ $pkg_manager = 'brew' ] && ! $(brew info $@ | grep -q "Not installed") && return $?
 }
 
 kickstart.package.install() {
@@ -25,7 +18,15 @@ kickstart.package.install() {
     return 1
   else
     kickstart.info "No packages found matching $@. Installing..."
-    kickstart.mute "$kickstart_pkg -y install $@"
+    kickstart.mute "`kickstart.package.manager` install -y $@"
     return 0
   fi
+}
+
+kickstart.package.update() {
+  kickstart.mute "`kickstart.package.manager` update -y"
+}
+
+kickstart.package.upgrade() {
+  kickstart.mute "`kickstart.package.manager` upgrade -y"
 }

@@ -1,5 +1,6 @@
 kickstart.os() {
   ( uname -a | grep -q Ubuntu ) && echo "Ubuntu"
+  ( uname -a | grep -q Darwin ) && echo "Mac"
 }
 
 kickstart.codename() {
