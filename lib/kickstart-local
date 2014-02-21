@@ -1,7 +1,9 @@
 #!/bin/bash -e
 
+[[ "$1" == "--sudo" ]] && prefix="sudo " && shift
+
 kickstart compile $@
 (
 cd compile
-bash install.sh
+$prefix bash install.sh
 )

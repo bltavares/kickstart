@@ -59,7 +59,7 @@ kickstart compile
 Takes an host target and deploy the compiled code on it.
 
 ```bash
-kickstart deploy [target] [roles ...]
+kickstart deploy [--sudo] [target] [roles ...]
 ```
 
 ##### Examples
@@ -79,7 +79,7 @@ kickstart deploy "-p 2222 vagrant@localhost" nodejs redis
 Deploy localy a recipe that is not over ssh. It basicaly compile and run the install script
 
 ```bash
-kickstart local [roles ...]
+kickstart local [--sudo] [roles ...]
 ```
 
 #### infect

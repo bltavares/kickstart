@@ -1,8 +1,12 @@
 #!/bin/bash -e
 
+[[ "$1" == "--sudo" ]] && prefix="sudo " && shift
+
 target=$1
 [ "$target" ] || echo "Please, provide an ssh target"
 shift
+
+[[ "$1" == "--sudo" ]] && prefix="sudo " && shift
 
 remote_command=$(
 cat <<CMD
@@ -10,7 +14,7 @@ cat <<CMD
   mkdir ~/kickstart
   cd ~/kickstart
   tar xz
-  bash install.sh
+  $prefix bash install.sh
 CMD
 )
 
