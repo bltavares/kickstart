@@ -1,11 +1,3 @@
-kickstart.apt.update() {
-  kickstart.mute "apt-get update -y"
-}
-
-kickstart.apt.upgrade() {
-  kickstart.mute "apt-get -y upgrade"
-}
-
 kickstart.apt.ppa() {
   kickstart.mute "add-apt-repository -y $1"
   kickstart.apt.update
