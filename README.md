@@ -108,6 +108,26 @@ Using alternate ssh port
 kickstart bootstrap "-p 2222 vagrant@vagrant"
 ```
 
+#### doc
+Show documentation for a kickstart function
+
+```bash
+kickstart doc [function name]
+```
+
+##### Example
+List all documented functions
+
+```bash
+kickstart doc
+```
+
+Show documentation for a function
+
+```bash
+kickstart doc kickstart.os
+```
+
 
 ### Thanks
 This project was inspired on [sunzi](https://github.com/kenn/sunzi)
