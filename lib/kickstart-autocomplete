@@ -1,0 +1,4 @@
+#!/bin/bash
+
+root_dir=`kickstart root-dir`
+echo "source $root_dir/completions/kickstart"

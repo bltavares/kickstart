@@ -12,6 +12,7 @@ shell_configuration=$HOME/.bashrc
 
 git clone https://github.com/bltavares/kickstart.git $installation_path
 echo 'export PATH=$PATH:'$installation_path'/bin' >> $shell_configuration
+echo 'eval "$(baseline autocomplete)"' >> $shell_configuration
 ```
 
 The other is to link the `bin/kickstart` into a place that is already on your path
@@ -22,6 +23,7 @@ shell_configuration=$HOME/.bashrc
 
 git clone https://github.com/bltavares/kickstart.git $installation_path
 sudo ln -s $installation_path/bin/kickstart /usr/local/bin/kickstart
+echo 'eval "$(baseline autocomplete)"' >> $shell_configuration
 ```
 
 ### Usage
@@ -128,6 +130,12 @@ Show documentation for a function
 kickstart doc kickstart.os
 ```
 
+#### autocomplete
+Enable autocompletion on your terminal
+
+```bash
+eval "$(kickstart autocomplete)"
+```
 
 ### Thanks
 This project was inspired on [sunzi](https://github.com/kenn/sunzi)
