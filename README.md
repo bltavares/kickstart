@@ -89,5 +89,25 @@ Infect your shell with the kickstart utility functions
 eval "$(kickstart infect)"
 ```
 
+#### bootstrap
+Install kickstart on the target
+
+```bash
+kickstart bootstratp [target]
+```
+
+##### Example
+Using default ssh configurations
+
+```bash
+kickstart bootstrap vagrant@vagrant
+```
+
+Using alternate ssh port
+```bash
+kickstart bootstrap "-p 2222 vagrant@vagrant"
+```
+
+
 ### Thanks
 This project was inspired on [sunzi](https://github.com/kenn/sunzi)

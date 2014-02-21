@@ -1,0 +1,18 @@
+#!/bin/bash -e
+
+target=$1
+[ "$target" ] || echo "Please, provide an ssh target"
+shift
+
+remote_command=$(
+cat <<CMD
+  [ -d ~/opt/kickstart ] && rm -rf ~/opt/kickstart
+  mkdir -p ~/opt/kickstart
+  cd ~/opt/kickstart
+  tar xz
+  echo 'PATH=~/opt/kickstart/bin:\$PATH' >> ~/.bashrc
+  echo 'PATH=~/opt/kickstart/bin:\$PATH' >> ~/.zshrc
+CMD
+)
+
+tar chz -C `kickstart root-dir` . | ssh $target "$remote_command"
