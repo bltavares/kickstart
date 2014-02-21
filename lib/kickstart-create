@@ -1,4 +1,4 @@
-#!/bin/bash -xe
+#!/bin/bash -e
 target=${1:-.}
 
 mkdir -p $target{,/roles,/recipes,/files}
