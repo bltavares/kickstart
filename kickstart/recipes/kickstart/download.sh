@@ -5,7 +5,7 @@ kickstart.download.file() {
 kickstart.download.stream() {
   kickstart.info "Downloading $1"
   if [ `which curl` ]; then
-    curl $1
+    curl -s $1
   elif [ `which wget` ]; then
     wget -qO - $1
   else
