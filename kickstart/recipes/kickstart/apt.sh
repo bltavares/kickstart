@@ -1,6 +1,6 @@
 kickstart.apt.ppa() {
   kickstart.mute "add-apt-repository -y $1"
-  kickstart.apt.update
+  kickstart.package.update
 }
 
 kickstart.apt.add_key_from_url() {
