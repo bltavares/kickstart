@@ -31,6 +31,14 @@ kickstart.command_exists() {
   which $1 >/dev/null 2>&1
 }
 
+kickstart.print_with_separator() {
+  (
+  IFS=$1
+  shift
+  echo -e "$*"
+  )
+}
+
 for recipe in recipes/kickstart/*; do
   source $recipe
 done
