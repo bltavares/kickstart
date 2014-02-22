@@ -61,7 +61,7 @@ kickstart compile
 Takes an host target and deploy the compiled code on it.
 
 ```bash
-kickstart deploy [--sudo] [target] [roles ...]
+kickstart deploy [--sudo] [--password PASSWORD] target [roles ...]
 ```
 
 ##### Examples
@@ -75,6 +75,12 @@ Deploy two roles on a host with an alternative port
 
 ```bash
 kickstart deploy "-p 2222 vagrant@localhost" nodejs redis
+```
+
+Deploy with sudo and send the password for sudo
+
+```bash
+kickstart deploy --sudo --password vagrant "-p 2222 vagrant@localhost" nodejs redis
 ```
 
 #### local

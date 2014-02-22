@@ -1,12 +1,12 @@
 #!/bin/bash -e
 
 [[ "$1" == "--sudo" ]] && prefix="sudo " && shift
+[[ "$1" == "--password" ]] && shift && prefix="echo \"$1\" | sudo -S " && shift
 
 target=$1
 [ "$target" ] || echo "Please, provide an ssh target"
 shift
 
-[[ "$1" == "--sudo" ]] && prefix="sudo " && shift
 [ "$DEBUG" ] && debug="-x"
 
 remote_command=$(
