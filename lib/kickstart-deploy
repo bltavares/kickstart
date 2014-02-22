@@ -7,6 +7,7 @@ target=$1
 shift
 
 [[ "$1" == "--sudo" ]] && prefix="sudo " && shift
+[ "$DEBUG" ] && debug="-x"
 
 remote_command=$(
 cat <<CMD
@@ -14,7 +15,7 @@ cat <<CMD
   mkdir ~/kickstart
   cd ~/kickstart
   tar xz
-  $prefix bash install.sh
+  $prefix bash $debug install.sh
 CMD
 )
 

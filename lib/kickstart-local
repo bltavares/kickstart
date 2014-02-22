@@ -1,9 +1,10 @@
 #!/bin/bash -e
 
 [[ "$1" == "--sudo" ]] && prefix="sudo " && shift
+[ "$DEBUG" ] && debug="-x"
 
 kickstart compile $@
 (
 cd compile
-$prefix bash install.sh
+$prefix bash $debug install.sh
 )

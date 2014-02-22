@@ -137,5 +137,12 @@ Enable autocompletion on your terminal
 eval "$(kickstart autocomplete)"
 ```
 
+### Debbuging
+Prepend DEBUG=1 to the command and you will see massive ammount of commands on your screen
+
+```bash
+DEBUG=1 kickstart local nodejs
+```
+
 ### Thanks
 This project was inspired on [sunzi](https://github.com/kenn/sunzi)
