@@ -1,5 +1,16 @@
 # kickstart
-Bash installation script for developer environments
+Bash only provisioning tool.
+
+The idea is to use bash scripts to provision machines over ssh, with no client installation on the target.
+It provides some abstractions and functions that help you structure and write more readable bash scripts.
+For an example project, check [kickstart-baseline](https://github.com/bltavares/kickstart-baseline).
+
+### Goal
+
+* No installation on the target
+* Over ssh, or local
+* Portable (Mac, Linux, containers and so on)
+
 
 ### Installation
 Add it to the path.
