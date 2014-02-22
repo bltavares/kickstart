@@ -15,7 +15,8 @@ echo 'export PATH=$PATH:'$installation_path'/bin' >> $shell_configuration
 echo 'eval "$(baseline autocomplete)"' >> $shell_configuration
 ```
 
-The other is to link the `bin/kickstart` into a place that is already on your path
+The other is to link the `bin/kickstart` into a place that is already on your path.
+This will allow `sudo` to see the `kickstart` command.
 ```bash
 # Adjust the paths to your preferred location
 installation_path=/opt/kickstart
