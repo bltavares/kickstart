@@ -13,11 +13,9 @@ kickstart.package.installed() {
 kickstart.package.install() {
   if kickstart.package.installed "$@"; then
     kickstart.info "$@ already installed"
-    return 1
   else
     kickstart.info "No packages found matching $@. Installing..."
     kickstart.mute "`kickstart.package.manager` install -y $@"
-    return 0
   fi
 }
 
