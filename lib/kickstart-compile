@@ -2,10 +2,16 @@
 
 module_loading=$(cat <<MODULE
 current_dir=\$(pwd)
+cd modules/kickstart
+source install.sh
+cd \$current_dir
+
 for module in modules/*; do
-  cd \$module
-  source install.sh
-  cd \$current_dir
+  if [ ! \$module = module/kickstart ]; then
+    cd \$module
+    source install.sh
+    cd \$current_dir
+  fi
 done
 MODULE
 )
@@ -26,7 +32,7 @@ link_modules() {
 
   if [ -d modules ]; then
     for module in modules/*; do
-      ln -s ../../modules/$module compile/modules/$module
+      ln -s `pwd`/$module compile/$module
     done
   fi
 }
