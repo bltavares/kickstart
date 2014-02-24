@@ -1,6 +1,6 @@
 # Kickstart
 
-Functions:
+### Functions
 * [kickstart.apt.add_key_from_keychain](kickstart/apt/add_key_from_keychain)
 * [kickstart.apt.add_key_from_url](kickstart/apt/add_key_from_url)
 * [kickstart.apt.ppa](kickstart/apt/ppa)
@@ -11,6 +11,8 @@ Functions:
 * [kickstart.download.stream](kickstart/download/stream)
 * [kickstart.file.link](kickstart/file/link)
 * [kickstart.group.create](kickstart/group/create)
+* [kickstart.module.apply_recipe](kickstart/module/apply_recipe)
+* [kickstart.module.apply_role](kickstart/module/apply_role)
 * [kickstart.mute](kickstart/mute)
 * [kickstart.os.is](kickstart/os/is)
 * [kickstart.os](kickstart/os)
@@ -19,6 +21,7 @@ Functions:
 * [kickstart.package.manager](kickstart/package/manager)
 * [kickstart.package.update](kickstart/package/update)
 * [kickstart.package.upgrade](kickstart/package/upgrade)
+* [kickstart.print_with_separator](kickstart/print_with_separator)
 * [kickstart.profile.add_to_profile](kickstart/profile/add_to_profile)
 * [kickstart.profile.location.bash](kickstart/profile/location/bash)
 * [kickstart.profile.location.profile_d](kickstart/profile/location/profile_d)
@@ -31,3 +34,5 @@ Functions:
 * [kickstart.service.stop](kickstart/service/stop)
 * [kickstart.user.add_group](kickstart/user/add_group)
 * [kickstart.user.create](kickstart/user/create)
+* [kickstart.user.is_on_group](kickstart/user/is_on_group)
+* [kickstart.user.remove_group](kickstart/user/remove_group)
