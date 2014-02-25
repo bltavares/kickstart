@@ -1,5 +1,5 @@
 kickstart.user.create() {
-  kickstart.mute "id $1" || ( useradd -m -s /bin/bash -U -p `openssl passwd -1 $2` $1 )
+  kickstart.mute id $1 || ( useradd -m -s /bin/bash -U -p `openssl passwd -1 $2` $1 )
 }
 
 kickstart.user.is_on_group() {

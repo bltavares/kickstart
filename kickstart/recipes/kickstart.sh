@@ -23,7 +23,7 @@ kickstart.context() {
 
 kickstart.mute() {
   kickstart.info "Running \"$@\""
-  `$@ >/dev/null 2>&1`
+  `"$@" >/dev/null 2>&1`
   return $?
 }
 

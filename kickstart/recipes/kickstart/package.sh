@@ -15,14 +15,14 @@ kickstart.package.install() {
     kickstart.info "$@ already installed"
   else
     kickstart.info "No packages found matching $@. Installing..."
-    kickstart.mute "`kickstart.package.manager` install -y $@"
+    kickstart.mute `kickstart.package.manager` install -y "$@"
   fi
 }
 
 kickstart.package.update() {
-  kickstart.mute "`kickstart.package.manager` update -y"
+  kickstart.mute `kickstart.package.manager` update -y
 }
 
 kickstart.package.upgrade() {
-  kickstart.mute "`kickstart.package.manager` upgrade -y"
+  kickstart.mute `kickstart.package.manager` upgrade -y
 }
