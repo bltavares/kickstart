@@ -6,8 +6,8 @@ kickstart.package.manager() {
 
 kickstart.package.installed() {
   local pkg_manager=`kickstart.package.manager`
-  [ $pkg_manager = 'apt-get' ] && dpkg -s $@ >/dev/null 2>&1 && return $?
-  [ $pkg_manager = 'brew' ] && ! $(brew info $@ | grep -q "Not installed") && return $?
+  [ $pkg_manager = 'apt-get' ] && dpkg -s "$@" >/dev/null 2>&1 && return $?
+  [ $pkg_manager = 'brew' ] && ! $(brew info "$@" | kickstart.stream.contains "Not installed") && return $?
 }
 
 kickstart.package.install() {

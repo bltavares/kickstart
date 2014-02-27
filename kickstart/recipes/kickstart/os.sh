@@ -1,6 +1,6 @@
 kickstart.os() {
-  ( uname -a | grep -q Ubuntu ) && echo "Ubuntu"
-  ( uname -a | grep -q Darwin ) && echo "Mac"
+  uname -a | kickstart.stream.contains Ubuntu && echo "Ubuntu"
+  uname -a | kickstart.stream.contains Darwin && echo "Mac"
 }
 
 kickstart.os.is() {

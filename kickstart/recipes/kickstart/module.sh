@@ -7,7 +7,7 @@ kickstart.module.apply_recipe() {
 }
 
 kickstart.module.apply_() {
-  local cur_dir=`pwd`;
+  local cur_dir=`pwd`
   cd modules/$1
   source $3/$2.sh
   cd $cur_dir

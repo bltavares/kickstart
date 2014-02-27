@@ -3,7 +3,7 @@ kickstart.user.create() {
 }
 
 kickstart.user.is_on_group() {
-  grep -q $2 <(id -nG $1)
+  id -nG $1 | kickstart.stream.contains $2
 }
 
 kickstart.user.add_group() {

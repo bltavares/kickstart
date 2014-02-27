@@ -15,7 +15,7 @@ kickstart.profile.source_on_configuration_file() {
   local file=$1
   local profile_d=$2
   local configuration=$3
-  grep -q $file $configuration 2>/dev/null || ( echo "[[ -f $profile_d/$file ]] && source $profile_d/$file" >> $configuration )
+  kickstart.file.contains $configuration $file || ( echo "[[ -f $profile_d/$file ]] && source $profile_d/$file" >> $configuration )
 }
 
 kickstart.profile.location.profile_d() {
