@@ -1,7 +1,3 @@
-kickstart.codename() {
-  lsb_release -sc
-}
-
 kickstart.info() {
   [ "$kickstart_context" ] && echo "$kickstart_context >> $@" >&2 || echo "$@" >&2
 }
