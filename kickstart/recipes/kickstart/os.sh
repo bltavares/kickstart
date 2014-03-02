@@ -1,5 +1,6 @@
 kickstart.os() {
-  uname -a | kickstart.stream.contains Ubuntu && echo "Ubuntu"
+  [ -f /etc/lsb-release ] && echo "Ubuntu"
+  [ -f /etc/redhat-release ] && echo "RHEL"
   uname -a | kickstart.stream.contains Darwin && echo "Mac"
 }
 
