@@ -11,6 +11,7 @@ cat <<CMD
   cd ~/opt/kickstart
   tar xz
   echo 'PATH=~/opt/kickstart/bin:\$PATH' >> ~/.bashrc
+  echo 'PATH=~/opt/kickstart/bin:\$PATH' >> ~/.bash_profile
   echo 'PATH=~/opt/kickstart/bin:\$PATH' >> ~/.zshrc
 CMD
 )
