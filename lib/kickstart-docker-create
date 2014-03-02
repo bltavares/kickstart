@@ -1,17 +1,20 @@
 #!/bin/bash -e
 
+image_name=${1:-$KICKSTART_DOCKER_IMAGE}
+image_name=${image_name:-moul/sshd}
+
 pull_sshd_image() {
-  docker pull moul/sshd
+  docker pull $image_name
 }
 
 remove_running_sshd() {
-  runnig_sshd=$(docker ps -q moul/sshd)
+  runnig_sshd=$(docker ps -q $image_name)
   [ "$runnig_sshd" ] && docker kill "$runnig_sshd" && docker rm "$runnig_sshd"
   true
 }
 
 run_sshd() {
-  id=$(docker run -p 22 -d moul/sshd)
+  id=$(docker run -p 22 -d $image_name)
 
   [ -z "$id" ] && echo "Docker container did't start" && return 1
 

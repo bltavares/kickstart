@@ -51,14 +51,14 @@ kickstart create [folder name or current folder]
 Creates a docker container with a running sshd to test recipes
 
 ```bash
-kickstart docker-create
+kickstart docker-create [image-name]
 ```
 
 #### docker-ssh
 Access the created docker container over ssh. A simple utility that looks up for the port the docker is bound.
 
 ```bash
-kickstart docker-ssh
+kickstart docker-ssh [image-name]
 ```
 
 
@@ -161,6 +161,16 @@ Prepend DEBUG=1 to the command and you will see massive ammount of commands on y
 ```bash
 DEBUG=1 kickstart local nodejs
 ```
+
+### Choosing the docker image to use
+You can choose an specific image to use on the docker-* commands.
+On order, it looks up for an image as an argument, on the `KICKSTART_DOCKER_IMAGE` env variable or defaults to moul/sshd.
+You can use any image that is on the index, you probably want it to have an sshd running by default.
+
+Docker images tested:
+
+* [moul/sshd](https://index.docker.io/u/moul/sshd/)
+* [bltavares/centos-ssh](https://index.docker.io/u/bltavares/centos-ssh/)
 
 ### Thanks
 This project was inspired on [sunzi](https://github.com/kenn/sunzi)
