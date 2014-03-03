@@ -7,8 +7,17 @@ kickstart.package.manager() {
 
 kickstart.package.installed() {
   local pkg_manager=`kickstart.package.manager`
-  [ $pkg_manager = 'apt-get' ] && dpkg -s "$@" >/dev/null 2>&1 && return $?
-  [ $pkg_manager = 'brew' ] && ! $(brew info "$@" | kickstart.stream.contains "Not installed") && return $?
+
+  if [ $pkg_manager = 'apt-get' ]; then
+    dpkg -s "$@" >/dev/null 2>&1
+    return $?
+  fi
+
+  if [ $pkg_manager = 'brew' ]; then
+    ! $(brew info "$@" | kickstart.stream.contains "Not installed")
+    return $?
+  fi
+
   if [ $pkg_manager = 'yum' ]; then
     local yum_packages="`yum list installed`"
     for package in "$@"; do
