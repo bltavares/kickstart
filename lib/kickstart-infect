@@ -4,5 +4,5 @@ cat <<EVAL
   current_dir=`pwd`
   cd `kickstart root-dir`/kickstart/
   source install.sh
-  cd $current_dir
+  cd \$current_dir
 EVAL
