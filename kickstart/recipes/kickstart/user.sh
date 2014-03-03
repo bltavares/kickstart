@@ -17,3 +17,16 @@ kickstart.user.remove_group() {
     IFS=" " read -a groups < <(id -nG $1 | sed "s/$2//") && \
     usermod -G `kickstart.print_with_separator , ${groups[*]}` $1
 }
+
+kickstart.user.exec() {
+  local user=$1
+  shift
+
+  local command=$(cat <<COMMAND
+  eval "$(kickstart infect)"
+  $@
+COMMAND
+)
+  kickstart.info "Running \"$@\" as $user"
+  su $user - bash -c "$command"
+}
