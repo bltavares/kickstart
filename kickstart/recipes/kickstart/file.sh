@@ -4,5 +4,5 @@ kickstart.file.link() {
 }
 
 kickstart.file.contains() {
-  grep -q $2 $1 2>/dev/null
+  grep -q "$2" $1 2>/dev/null
 }
