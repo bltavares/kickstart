@@ -8,9 +8,17 @@ kickstart.context() {
   kickstart_context="$@"
 }
 
+kickstart.debugging() {
+  set -o | grep xtrace | kickstart.stream.contains on
+}
+
 kickstart.mute() {
   kickstart.info "Running \"$@\""
-  `"$@" >/dev/null 2>&1`
+  if kickstart.debugging; then
+    "$@"
+  else
+    `"$@" >/dev/null 2>&1`
+  fi
   return $?
 }
 
