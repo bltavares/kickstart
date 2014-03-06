@@ -18,15 +18,32 @@ kickstart.user.remove_group() {
     usermod -G `kickstart.print_with_separator , ${groups[*]}` $1
 }
 
+kickstart.user.exec.command.module() {
+  local cur_dir=`pwd`
+  cat <<COMMAND
+  cd modules/kickstart
+  source install.sh
+  cd $cur_dir
+  $@
+COMMAND
+}
+
+kickstart.user.exec.command.infect() {
+  cat <<COMMAND
+  eval "$(kickstart infect)"
+  $@
+COMMAND
+}
+
 kickstart.user.exec() {
   local user=$1
   shift
 
-  local command=$(cat <<COMMAND
-  eval "$(kickstart infect)"
-  $@
-COMMAND
-)
-  kickstart.info "Running \"$@\" as $user"
+  local command=''
+  kickstart.command_exists kickstart && \
+    command=`kickstart.user.exec.command.infect "$@"` || \
+    command=`kickstart.user.exec.command.module "$@"`
+
+  kickstart.info Running \'"$@"\' as $user
   su $user - bash -c "$command"
 }
