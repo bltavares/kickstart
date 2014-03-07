@@ -12,6 +12,11 @@ For an example project, check [kickstart-baseline](https://github.com/bltavares/
 * Portable (Mac, Linux, containers and so on)
 
 
+### Documentation
+
+Kickstart provides offline documentation using the `kickstart doc` command as well as an online on http://bltavares.viewdocs.io/kickstart
+Autocompletion is enabled for the offline documentation.
+
 ### Installation
 
 #### Adding to the shell
