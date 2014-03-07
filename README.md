@@ -31,7 +31,6 @@ shell_configuration=$HOME/.bashrc
 
 git clone https://github.com/bltavares/kickstart.git $installation_path
 echo 'export PATH=$PATH:'$installation_path'/bin' >> $shell_configuration
-echo 'eval "$(kickstart autocomplete)"' >> $shell_configuration
 ```
 
 #### Link under /usr/local/bin
@@ -41,11 +40,9 @@ This will allow `sudo` to see the `kickstart` command.
 ```bash
 # Adjust the paths to your preferred location
 installation_path=/opt/kickstart
-shell_configuration=$HOME/.bashrc
 
 git clone https://github.com/bltavares/kickstart.git $installation_path
 sudo ln -s $installation_path/bin/kickstart /usr/local/bin/kickstart
-echo 'eval "$(kickstart autocomplete)"' >> $shell_configuration
 ```
 
 #### Homebrew
@@ -54,6 +51,17 @@ echo 'eval "$(kickstart autocomplete)"' >> $shell_configuration
 brew tap bltavares/tap
 brew install --head kickstart
 ```
+
+### Autocompletion
+
+To enable autocompletion run the following command:
+
+```bash
+shell_configuration=$HOME/.bashrc
+echo 'eval "$(kickstart autocomplete)"' >> $shell_configuration
+```
+
+Adjust the shell configuration variable if you use a different shell.
 
 ### Usage
 
