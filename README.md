@@ -14,7 +14,8 @@ For an example project, check [kickstart-baseline](https://github.com/bltavares/
 
 ### Documentation
 
-Kickstart provides offline documentation using the `kickstart doc` command as well as an online on http://bltavares.viewdocs.io/kickstart
+Kickstart provides offline documentation using the `kickstart doc` command as well as an online on http://bltavares.viewdocs.io/kickstart.
+
 Autocompletion is enabled for the offline documentation.
 
 ### Installation
@@ -36,6 +37,7 @@ echo 'export PATH=$PATH:'$installation_path'/bin' >> $shell_configuration
 #### Link under /usr/local/bin
 
 The other is to link the `bin/kickstart` into a place that is already on your path.
+
 This will allow `sudo` to see the `kickstart` command.
 ```bash
 # Adjust the paths to your preferred location
@@ -189,6 +191,7 @@ DEBUG=1 kickstart local nodejs
 
 ### Choosing the docker image to use
 You can choose an specific image to use on the docker-* commands.
+
 On order, it looks up for an image as an argument, on the `KICKSTART_DOCKER_IMAGE` env variable or defaults to moul/sshd.
 You can use any image that is on the index, you probably want it to have an sshd running by default.
 
