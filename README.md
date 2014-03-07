@@ -184,5 +184,14 @@ Docker images tested:
 * [moul/sshd](https://index.docker.io/u/moul/sshd/)
 * [bltavares/centos-ssh](https://index.docker.io/u/bltavares/centos-ssh/)
 
+### Packaging
+
+#### .deb
+You need to have make and fpm installed.
+
+```bash
+make deb
+```
+
 ### Thanks
 This project was inspired on [sunzi](https://github.com/kenn/sunzi)
