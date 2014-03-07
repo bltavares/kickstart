@@ -13,6 +13,9 @@ For an example project, check [kickstart-baseline](https://github.com/bltavares/
 
 
 ### Installation
+
+#### Adding to the shell
+
 Add it to the path.
 
 One options is to download it, and export the bin folder into your PATH
@@ -26,6 +29,8 @@ echo 'export PATH=$PATH:'$installation_path'/bin' >> $shell_configuration
 echo 'eval "$(kickstart autocomplete)"' >> $shell_configuration
 ```
 
+#### Link under /usr/local/bin
+
 The other is to link the `bin/kickstart` into a place that is already on your path.
 This will allow `sudo` to see the `kickstart` command.
 ```bash
@@ -36,6 +41,13 @@ shell_configuration=$HOME/.bashrc
 git clone https://github.com/bltavares/kickstart.git $installation_path
 sudo ln -s $installation_path/bin/kickstart /usr/local/bin/kickstart
 echo 'eval "$(kickstart autocomplete)"' >> $shell_configuration
+```
+
+#### Homebrew
+
+```bash
+brew tap bltavares/tap
+brew install --head kickstart
 ```
 
 ### Usage
