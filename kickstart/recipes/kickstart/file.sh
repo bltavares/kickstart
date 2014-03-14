@@ -6,3 +6,9 @@ kickstart.file.link() {
 kickstart.file.contains() {
   grep -q "$2" $1 2>/dev/null
 }
+
+kickstart.file.template() {
+  file=$1
+  shift
+  kickstart.stream.template "$@" < $file
+}
