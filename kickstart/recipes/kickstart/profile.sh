@@ -19,14 +19,13 @@ kickstart.profile.source_on_configuration_file() {
 }
 
 kickstart.profile.location.profile_d() {
-  kickstart.os.is Ubuntu && echo /etc/profile.d
-  kickstart.os.is Mac && echo ~/.profile.d
+  [ -w /etc -o -w /etc/profile.d ] && echo /etc/profile.d || echo ~/.profile.d
 }
 
 kickstart.profile.location.zsh() {
-  [ `whoami` = root ] && echo /etc/zshenv || echo ~/.zshenv
+  [ -w /etc ] && echo /etc/zshenv || echo ~/.zshenv
 }
 
 kickstart.profile.location.bash() {
-  [ `whoami` = root ] && echo /etc/profile || echo ~/.bashrc
+  [ -w /etc ] && echo /etc/profile || echo ~/.bashrc
 }
