@@ -32,7 +32,7 @@ shift
 command_file="$curr_dir"/../lib/kickstart-$command
 
 if ! [[ -x $command_file ]]; then
-  echo "Command does not exist. Run kickstart help"
+  echo "\"kickstart $command\" is not a subcommand. Run \"kickstart help\" for more information."
   exit 1
 fi
 
