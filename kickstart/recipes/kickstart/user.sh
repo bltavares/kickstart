@@ -47,3 +47,7 @@ kickstart.user.exec() {
   kickstart.info Running \'"$@"\' as $user
   su $user - bash -c "$command"
 }
+
+kickstart.user.root?() {
+  [ `whoami` == root ]
+}

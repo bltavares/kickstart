@@ -43,3 +43,4 @@
 * [kickstart.user.exec](kickstart/user/exec)
 * [kickstart.user.is_on_group](kickstart/user/is_on_group)
 * [kickstart.user.remove_group](kickstart/user/remove_group)
+* [kickstart.user.root?](kickstart/user/root?)
