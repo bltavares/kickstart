@@ -26,7 +26,7 @@ else
   curr_dir=$(dirname `readlink -f "$path_to_kickstart"`)
 fi
 
-command=$1
+command=${1:-help}
 shift
 
 command_file="$curr_dir"/../lib/kickstart-$command
