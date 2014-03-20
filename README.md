@@ -199,6 +199,7 @@ Docker images tested:
 
 * [moul/sshd](https://index.docker.io/u/moul/sshd/)
 * [bltavares/centos-ssh](https://index.docker.io/u/bltavares/centos-ssh/)
+* [bltavares/arch-ssh](https://index.docker.io/u/bltavares/arch-ssh/)
 
 ### Packaging
 
