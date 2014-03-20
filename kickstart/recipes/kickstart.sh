@@ -34,6 +34,6 @@ kickstart.print_with_separator() {
   )
 }
 
-for recipe in recipes/kickstart/*; do
+for recipe in recipes/kickstart/*.sh; do
   source $recipe
 done
