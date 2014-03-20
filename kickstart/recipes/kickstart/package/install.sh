@@ -18,3 +18,7 @@ kickstart.package.install.brew() {
 kickstart.package.install.yum() {
   kickstart.mute yum install -y "$@"
 }
+
+kickstart.package.install.pacman() {
+  kickstart.mute pacman -S --noconfirm "$@"
+}
