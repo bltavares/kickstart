@@ -6,13 +6,12 @@ shift
 
 remote_command=$(
 cat <<CMD
-  [ -d ~/opt/kickstart ] && rm -rf ~/opt/kickstart
-  mkdir -p ~/opt/kickstart
-  cd ~/opt/kickstart
+  target=\$(mktemp -d -t kickstart.XXXXX)
+  mkdir -p \$target
+  cd \$target
   tar xz
-  echo 'PATH=~/opt/kickstart/bin:\$PATH' >> ~/.bashrc
-  echo 'PATH=~/opt/kickstart/bin:\$PATH' >> ~/.bash_profile
-  echo 'PATH=~/opt/kickstart/bin:\$PATH' >> ~/.zshrc
+  rm -rf /usr/local/bin/kickstart
+  ln -s \$target/bin/kickstart /usr/local/bin/kickstart
 CMD
 )
 
