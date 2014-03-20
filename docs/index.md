@@ -7,7 +7,7 @@
 * [kickstart.apt.ppa](kickstart/apt/ppa)
 * [kickstart.command_exists](kickstart/command_exists)
 * [kickstart.context](kickstart/context)
-* [kickstart.debugging](kickstart/debugging)
+* [kickstart.debugging?](kickstart/debugging?)
 * [kickstart.download.file](kickstart/download/file)
 * [kickstart.download.stream](kickstart/download/stream)
 * [kickstart.file.contains](kickstart/file/contains)
