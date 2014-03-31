@@ -3,5 +3,7 @@ kickstart.stream.contains() {
 }
 
 kickstart.stream.template() {
-  eval "echo -e \"`cat`\""
+  eval "cat <<KICKSTART
+  $(cat)
+KICKSTART"
 }
