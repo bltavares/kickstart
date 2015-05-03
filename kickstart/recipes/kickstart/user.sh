@@ -45,7 +45,7 @@ kickstart.user.exec() {
     command=`kickstart.user.exec.command.module "$@"`
 
   kickstart.info Running \'"$@"\' as $user
-  su $user - bash -c "$command"
+  sudo -H -u $user bash -c "$command"
 }
 
 kickstart.user.root?() {
