@@ -1,5 +1,9 @@
+kickstart.user.exists?() {
+  kickstart.mute id $1
+}
+
 kickstart.user.create() {
-  kickstart.mute id $1 || ( useradd -m -s /bin/bash -U -p `openssl passwd -1 $2` $1 )
+  kickstart.user.exists? $1 || ( useradd -m -s /bin/bash -U -p `openssl passwd -1 $2` $1 )
 }
 
 kickstart.user.is_on_group() {
@@ -16,6 +20,10 @@ kickstart.user.remove_group() {
   kickstart.user.is_on_group $1 $2 && \
     IFS=" " read -a groups < <(id -nG $1 | sed "s/$2//") && \
     usermod -G `kickstart.print_with_separator , ${groups[*]}` $1
+}
+
+kickstart.user.homeFolder() {
+  grep ^$1 /etc/passwd | cut -d: -f 6
 }
 
 kickstart.user.exec.command.module() {
