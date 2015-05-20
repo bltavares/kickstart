@@ -1,11 +1,11 @@
 kickstart.info() {
-  [ "$kickstart_context" ] && echo "$kickstart_context >> $@" >&2 || echo "$@" >&2
+  [ "$kickstart_context" ] && echo "$kickstart_context >> $*" >&2 || echo "$*" >&2
 }
 
 kickstart.context() {
   kickstart_context=""
-  kickstart.info "Setting up $@"
-  kickstart_context="$@"
+  kickstart.info "Setting up $*"
+  kickstart_context="$*"
 }
 
 kickstart.debugging?() {
@@ -13,17 +13,17 @@ kickstart.debugging?() {
 }
 
 kickstart.mute() {
-  kickstart.info "Running \"$@\""
+  kickstart.info "Running \"$*\""
   if kickstart.debugging?; then
-    "$@"
+    "$*"
   else
-    `"$@" >/dev/null 2>&1`
+    "$*" >/dev/null 2>&1
   fi
   return $?
 }
 
 kickstart.command_exists() {
-  which $1 >/dev/null 2>&1
+  which "$1" >/dev/null 2>&1
 }
 
 kickstart.print_with_separator() {
@@ -35,5 +35,5 @@ kickstart.print_with_separator() {
 }
 
 for recipe in recipes/kickstart/*.sh; do
-  source $recipe
+  source "$recipe"
 done

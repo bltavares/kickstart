@@ -7,5 +7,5 @@ kickstart.package.manager() {
 }
 
 for recipe in recipes/kickstart/package/*.sh; do
-  source $recipe
+  source "$recipe"
 done

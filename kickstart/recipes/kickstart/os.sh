@@ -6,7 +6,7 @@ kickstart.os() {
 }
 
 kickstart.os.is() {
-  [[ `kickstart.os` == "$1" ]]
+  [[ $(kickstart.os) == "$1" ]]
 }
 
 kickstart.os.codename() {

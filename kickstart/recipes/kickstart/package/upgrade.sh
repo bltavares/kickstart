@@ -1,5 +1,5 @@
 kickstart.package.upgrade() {
-  kickstart.package.upgrade.`kickstart.package.manager`
+  kickstart.package.upgrade."$(kickstart.package.manager)"
 }
 
 kickstart.package.upgrade.apt-get() {
