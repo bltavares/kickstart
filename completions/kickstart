@@ -5,11 +5,11 @@ _kickstart_autocomplete() {
   local cur=${COM_WORDS[COM_CWORD]}
 
   if [ "$COMP_CWORD" -eq 1 ]; then
-    COMPREPLY=( $(compgen -W "`kickstart commands`" -- "$cur") )
+    COMPREPLY=( $(compgen -W "$(kickstart commands)" -- "$cur") )
   fi
 
   if [ "$COMP_CWORD" -eq 2 ] && [[ "${COMP_WORDS[1]}" == "doc" ]]; then
-    COMPREPLY=( $(compgen -W "`kickstart doc 2> /dev/null`" -- $cur) )
+    COMPREPLY=( $(compgen -W "$(kickstart doc 2> /dev/null)" -- "$cur") )
   fi
 
   return 0;
