@@ -1,4 +1,4 @@
 #!/bin/bash
 
-root_dir=`kickstart root-dir`
-echo "`ls $root_dir/lib | cut -f2- -d'-'`"
+root_dir=$(kickstart root-dir)
+find "$root_dir"/lib -maxdepth | cut -f2- -d'-'

@@ -3,27 +3,27 @@ _kickstart_readlink() {
   (
   TARGET_FILE=$1
 
-  cd `dirname $TARGET_FILE`
-  TARGET_FILE=`basename $TARGET_FILE`
+  cd "$(dirname "$TARGET_FILE")"
+  TARGET_FILE=$(basename "$TARGET_FILE")
 
   while [ -L "$TARGET_FILE" ]
   do
-    TARGET_FILE=`readlink $TARGET_FILE`
-    cd `dirname $TARGET_FILE`
-    TARGET_FILE=`basename $TARGET_FILE`
+    TARGET_FILE=$(readlink "$TARGET_FILE")
+    cd "$(dirname "$TARGET_FILE")"
+    TARGET_FILE=$(basename "$TARGET_FILE")
   done
 
-  PHYS_DIR=`pwd -P`
+  PHYS_DIR=$(pwd -P)
   RESULT=$PHYS_DIR/$TARGET_FILE
-  echo $RESULT
+  echo "$RESULT"
   )
 }
 
-path_to_kickstart=`which kickstart`
-if [[ `uname` == "Darwin" ]]; then
-  curr_dir=$(dirname `_kickstart_readlink "$path_to_kickstart"`)
+path_to_kickstart=$(which kickstart)
+if [[ "$(uname)" == "Darwin" ]]; then
+  curr_dir=$(dirname "$(_kickstart_readlink "$path_to_kickstart")")
 else
-  curr_dir=$(dirname `readlink -f "$path_to_kickstart"`)
+  curr_dir=$(dirname "$(readlink -f "$path_to_kickstart")")
 fi
 
 command=${1:-help}
@@ -36,4 +36,4 @@ if ! [[ -x $command_file ]]; then
   exit 1
 fi
 
-exec $command_file "$@"
+exec "$command_file" "$@"

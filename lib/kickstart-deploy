@@ -12,13 +12,13 @@ shift
 remote_command=$(
 cat <<CMD
   target=\$(mktemp -d -t kickstart.XXXXX)
-  mkdir -p \$target
-  cd \$target
+  mkdir -p "\$target"
+  cd "\$target"
   tar xz
   $prefix bash $debug install.sh
-  rm -rf \$target
+  rm -rf "\$target"
 CMD
 )
 
-kickstart compile $@
-tar chz -C compile . | ssh $target "$remote_command"
+kickstart compile "$@"
+tar chz -C compile . | ssh "$target" "$remote_command"

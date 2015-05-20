@@ -1,7 +1,7 @@
 #!/bin/bash -e
 target=${1:-.}
 
-mkdir -p $target{,/roles,/recipes,/files}
-touch $target/{README.md,install.sh,roles/.gitkeep,recipes/.gitkeep,files/.gitkeep}
-chmod +x $target/install.sh
-[ -f $target/.gitignore ] && echo "compile" > $target/.gitignore || echo "compile" >> $target/.gitignore
+mkdir -p "$target"{,/roles,/recipes,/files}
+touch "$target"/{README.md,install.sh,roles/.gitkeep,recipes/.gitkeep,files/.gitkeep}
+chmod +x "$target"/install.sh
+echo "compile" >> "$target"/.gitignore

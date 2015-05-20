@@ -1,12 +1,16 @@
 #!/bin/bash
 
 list() {
-  root_dir=`kickstart root-dir`
-  find $root_dir/docs -type f | sed -e 's/.md$//' | cut -c `wc -c <<<$root_dir/docs/`- | tr '/' '.'
+  root_dir=$(kickstart root-dir)
+  find "$root_dir"/docs -type f | sed -e 's/.md$//' | cut -c "$(wc -c <<<$root_dir/docs/)"- | tr '/' '.'
 }
 
 show() {
-  cat `kickstart root-dir`/docs/$(echo $1 | tr '.' '/').md
+  cat "$(kickstart root-dir)"/docs/"$(echo "$1" | tr '.' '/')".md
 }
 
-[ -z "$1" ] && list || show $1
+if [ -z "$1" ]; then
+  list
+else
+  show "$1"
+fi

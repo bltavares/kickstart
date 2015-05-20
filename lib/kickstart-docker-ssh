@@ -3,8 +3,8 @@
 image_name=${1:-$KICKSTART_DOCKER_IMAGE}
 image_name=${image_name:-moul/sshd}
 
-runnig_sshd=$(docker ps -q $image_name)
+runnig_sshd=$(docker ps -q "$image_name")
 [ -z "$runnig_sshd" ] && echo "Docker container not created. Run \`kickstart docker-create\` to get one" && exit 1
 
-port=`docker port $runnig_sshd 22 | cut -f 2 -d :`
-exec ssh -p $port root@localhost
+port=$(docker port "$runnig_sshd" 22 | cut -f 2 -d :)
+exec ssh -p "$port" root@localhost

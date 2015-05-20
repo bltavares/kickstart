@@ -4,24 +4,24 @@ image_name=${1:-$KICKSTART_DOCKER_IMAGE}
 image_name=${image_name:-moul/sshd}
 
 pull_sshd_image() {
-  docker pull $image_name
+  docker pull "$image_name"
 }
 
 remove_running_sshd() {
-  runnig_sshd=$(docker ps -q $image_name)
+  runnig_sshd=$(docker ps -q "$image_name")
   [ "$runnig_sshd" ] && docker kill "$runnig_sshd" && docker rm "$runnig_sshd"
   true
 }
 
 run_sshd() {
-  id=$(docker run -p 22 -d $image_name)
+  id=$(docker run -p 22 -d "$image_name")
 
   [ -z "$id" ] && echo "Docker container did't start" && return 1
 
-  echo "Connect using root:root on " `docker port $id 22`
-  port=`docker port $id 22 | cut -f 2 -d :`
+  echo "Connect using root:root on " "$(docker port "$id" 22)"
+  port=$(docker port "$id" 22 | cut -f 2 -d :)
   echo For ssh: kickstart docker-ssh
-  echo For deploy: kickstart deploy \"-p $port root@localhost\" '[roles]'
+  echo For deploy: kickstart deploy \"-p "$port" root@localhost\" '[roles]'
 }
 
 pull_sshd_image

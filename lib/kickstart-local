@@ -3,7 +3,7 @@
 [[ "$1" == "--sudo" ]] && prefix="sudo " && shift
 [ "$DEBUG" ] && debug="-x"
 
-kickstart compile $@
+kickstart compile "$@"
 (
 cd compile
 $prefix bash $debug install.sh
