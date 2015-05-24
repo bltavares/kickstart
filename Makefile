@@ -6,6 +6,12 @@ PREFIX?=/usr/local
 INSTALL_BIN=$(PREFIX)/bin
 KICKSTART_LOCATION=$(PREFIX)/share/kickstart
 
+docs/index.md: $(shell find docs/kickstart)
+	echo "# Kickstart" > docs/index.md
+	echo "" >> docs/index.md
+	echo "### Functions" >> docs/index.md
+	find docs/kickstart -type f | cut -d/ -f2- | cut -d. -f1 | xargs -n1 -I l bash -c 'echo "* [$$(echo l | tr / .)](l)"' >> docs/index.md
+
 deb: clean
 	fpm -s dir -t deb -n kickstart \
 		-x usr/local/share/kickstart/.baseline \

@@ -1,13 +1,12 @@
 # Kickstart
 
 ### Functions
-* [index](index)
 * [kickstart.apt.add_key_from_keychain](kickstart/apt/add_key_from_keychain)
 * [kickstart.apt.add_key_from_url](kickstart/apt/add_key_from_url)
 * [kickstart.apt.ppa](kickstart/apt/ppa)
 * [kickstart.command_exists](kickstart/command_exists)
 * [kickstart.context](kickstart/context)
-* [kickstart.debugging?](kickstart/debugging?)
+* [kickstart.debugging](kickstart/debugging)
 * [kickstart.download.file](kickstart/download/file)
 * [kickstart.download.stream](kickstart/download/stream)
 * [kickstart.file.contains](kickstart/file/contains)
@@ -41,6 +40,8 @@
 * [kickstart.user.add_group](kickstart/user/add_group)
 * [kickstart.user.create](kickstart/user/create)
 * [kickstart.user.exec](kickstart/user/exec)
+* [kickstart.user.exists](kickstart/user/exists)
+* [kickstart.user.home_folder](kickstart/user/home_folder)
 * [kickstart.user.is_on_group](kickstart/user/is_on_group)
+* [kickstart.user.is_root](kickstart/user/is_root)
 * [kickstart.user.remove_group](kickstart/user/remove_group)
-* [kickstart.user.root?](kickstart/user/root?)
