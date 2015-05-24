@@ -8,16 +8,16 @@ kickstart.context() {
   kickstart_context="$*"
 }
 
-kickstart.debugging?() {
+kickstart.debugging() {
   set -o | grep xtrace | kickstart.stream.contains on
 }
 
 kickstart.mute() {
   kickstart.info "Running \"$*\""
-  if kickstart.debugging?; then
-    "$*"
+  if kickstart.debugging; then
+    "$@"
   else
-    "$*" >/dev/null 2>&1
+    "$@" >/dev/null 2>&1
   fi
   return $?
 }

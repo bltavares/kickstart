@@ -1,9 +1,9 @@
-kickstart.user.exists?() {
+kickstart.user.exists() {
   kickstart.mute id "$1"
 }
 
 kickstart.user.create() {
-  kickstart.user.exists? "$1" || ( useradd -m -s /bin/bash -U -p "$(openssl passwd -1 "$2")" "$1" )
+  kickstart.user.exists "$1" || ( useradd -m -s /bin/bash -U -p "$(openssl passwd -1 "$2")" "$1" )
 }
 
 kickstart.user.is_on_group() {
@@ -22,7 +22,7 @@ kickstart.user.remove_group() {
     usermod -G "$(kickstart.print_with_separator , "${groups[*]}")" "$1"
 }
 
-kickstart.user.homeFolder() {
+kickstart.user.home_folder() {
   grep ^"$1" /etc/passwd | cut -d: -f 6
 }
 
@@ -57,6 +57,6 @@ kickstart.user.exec() {
   sudo -H -u "$user" bash -c "$command"
 }
 
-kickstart.user.root?() {
+kickstart.user.is_root() {
   [ "$(whoami)" == root ]
 }
