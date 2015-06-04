@@ -182,7 +182,7 @@ Enable autocompletion on your terminal
 eval "$(kickstart autocomplete)"
 ```
 
-### Debbuging
+### Debugging
 Prepend DEBUG=1 to the command and you will see massive ammount of commands on your screen
 
 ```bash
