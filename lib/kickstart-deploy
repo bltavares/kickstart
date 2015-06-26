@@ -15,8 +15,10 @@ cat <<CMD
   mkdir -p "\$target"
   cd "\$target"
   tar xz
-  $prefix bash $debug install.sh
+  exit_status=0
+  $prefix bash $debug install.sh || exit_status=\$?
   rm -rf "\$target"
+  exit \$exit_status
 CMD
 )
 
