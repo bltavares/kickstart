@@ -4,6 +4,6 @@ kickstart.stream.contains() {
 
 kickstart.stream.template() {
   eval "cat <<KICKSTART
-  $(cat)
+$(cat)
 KICKSTART"
 }
