@@ -51,7 +51,7 @@ sudo ln -s $installation_path/bin/kickstart /usr/local/bin/kickstart
 
 ```bash
 brew tap bltavares/tap
-brew install --head kickstart
+brew install --HEAD kickstart
 ```
 
 ### Autocompletion
