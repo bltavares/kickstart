@@ -15,4 +15,5 @@ _kickstart_autocomplete() {
   return 0;
 }
 
+[ -n "$ZSH_NAME" ] && autoload -U bashcompinit &&  bashcompinit
 complete -F _kickstart_autocomplete kickstart
