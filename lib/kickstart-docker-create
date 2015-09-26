@@ -18,7 +18,7 @@ run_sshd() {
 
   [ -z "$id" ] && echo "Docker container did't start" && return 1
 
-  echo "Connect using root:root on " "$(docker port "$id" 22)"
+  echo "Connect using root:root on $(docker port "$id" 22)"
   port=$(docker port "$id" 22 | cut -f 2 -d :)
   echo For ssh: kickstart docker-ssh
   echo For deploy: kickstart deploy \"-p "$port" root@localhost\" '[roles]'
