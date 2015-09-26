@@ -2,7 +2,8 @@
 
 list() {
   root_dir=$(kickstart root-dir)
-  find "$root_dir"/docs -type f | sed -e 's/.md$//' | cut -c "$(wc -c <<<$root_dir/docs/)"- | tr '/' '.'
+  length_of_path=$(wc -m <<<"$root_dir/docs/" | xargs)
+  find "$root_dir"/docs -type f | sed -e 's/.md$//' | cut -c "$length_of_path-" | tr '/' '.'
 }
 
 show() {
