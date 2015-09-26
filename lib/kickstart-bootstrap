@@ -5,13 +5,13 @@ target=$1
 shift
 
 remote_command=$(
-cat <<CMD
-  target=\$(mktemp -d -t kickstart.XXXXX)
-  mkdir -p \$target
-  cd \$target
+cat <<\CMD
+  installation_folder=$(mktemp -d -t kickstart.XXXXX)
+  mkdir -p $installation_folder
+  cd $installation_folder
   tar xz
   rm -rf /usr/local/bin/kickstart
-  ln -s \$target/bin/kickstart /usr/local/bin/kickstart
+  ln -s $installation_folder/bin/kickstart /usr/local/bin/kickstart
 CMD
 )
 
