@@ -1,16 +1,16 @@
 #!/bin/bash -e
 
-module_loading=$(cat <<MODULE
-current_dir=\$(pwd)
+module_loading=$(cat <<\MODULE
+current_dir=$(pwd)
 cd modules/kickstart
 source install.sh
-cd "\$current_dir"
+cd "$current_dir"
 
 for module in modules/*; do
-  if [ ! "\$module" = module/kickstart ]; then
-    cd "\$module"
+  if [ ! "$module" = module/kickstart ]; then
+    cd "$module"
     source install.sh
-    cd "\$current_dir"
+    cd "$current_dir"
   fi
 done
 MODULE
