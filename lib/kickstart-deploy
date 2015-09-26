@@ -25,4 +25,4 @@ CMD
 )
 
 kickstart compile "$@"
-tar chz -C compile . | ssh $target "$remote_command"
+tar chz -C compile . | ssh $target "bash -c '$remote_command'"
