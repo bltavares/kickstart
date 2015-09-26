@@ -11,13 +11,13 @@ shift
 
 remote_command=$(
 cat <<CMD
-  target=\$(mktemp -d -t kickstart.XXXXX)
-  mkdir -p "\$target"
-  cd "\$target"
+  deploy_folder=\$(mktemp -d -t kickstart.XXXXX)
+  mkdir -p "\$deploy_folder"
+  cd "\$deploy_folder"
   tar xz
   exit_status=0
   $prefix bash $debug install.sh || exit_status=\$?
-  rm -rf "\$target"
+  rm -rf "\$deploy_folder"
   exit \$exit_status
 CMD
 )
