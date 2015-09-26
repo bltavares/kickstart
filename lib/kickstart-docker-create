@@ -8,7 +8,7 @@ pull_sshd_image() {
 }
 
 remove_running_sshd() {
-  runnig_sshd=$(docker ps -q "$image_name")
+  runnig_sshd=$(docker ps --format='{{.ID}}\t{{.Image}}' | grep "$image_name" | cut -f 1)
   [ "$runnig_sshd" ] && docker kill "$runnig_sshd" && docker rm "$runnig_sshd"
   true
 }
