@@ -11,6 +11,7 @@ shift
 
 remote_command=$(
 cat <<CMD
+{
   deploy_folder=\$(mktemp -d -t kickstart.XXXXX)
   mkdir -p "\$deploy_folder"
   cd "\$deploy_folder"
@@ -19,6 +20,7 @@ cat <<CMD
   $prefix bash $debug install.sh || exit_status=\$?
   rm -rf "\$deploy_folder"
   exit \$exit_status
+}
 CMD
 )
 
