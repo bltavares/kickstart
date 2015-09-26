@@ -2,7 +2,7 @@
 
 _kickstart_autocomplete() {
 
-  local cur=${COM_WORDS[COM_CWORD]}
+  local cur=${COMP_WORDS[COMP_CWORD]}
 
   if [ "$COMP_CWORD" -eq 1 ]; then
     COMPREPLY=( $(compgen -W "$(kickstart commands)" -- "$cur") )
