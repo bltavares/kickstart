@@ -15,4 +15,4 @@ cat <<CMD
 CMD
 )
 
-tar chz -C "$(kickstart root-dir)" . | ssh "$target" "$remote_command"
+tar chz -C "$(kickstart root-dir)" . | ssh $target "$remote_command"
