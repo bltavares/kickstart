@@ -3,7 +3,7 @@ kickstart.package.installed() {
 }
 
 kickstart.package.installed.apt-get() {
-  kickstart.mute dpkg -s "$*"
+  dpkg -s "$*" | kickstart.stream.contains "Status: install ok installed"
 }
 
 kickstart.package.installed.brew() {
