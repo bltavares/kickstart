@@ -35,4 +35,4 @@ cat <<CMD
 }
 CMD
 )
-ssh $target "bash -c '$execute_command'"
+ssh -t $target "bash -c '$execute_command'"
