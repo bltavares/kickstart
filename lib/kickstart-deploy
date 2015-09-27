@@ -9,20 +9,30 @@ shift
 
 [ "$DEBUG" ] && debug="-x"
 
-remote_command=$(
+kickstart compile "$@"
+
+copy_command=$(
 cat <<CMD
 {
   deploy_folder=\$(mktemp -d -t kickstart.XXXXX)
   mkdir -p "\$deploy_folder"
   cd "\$deploy_folder"
   tar xz
+  echo "\$deploy_folder"
+}
+CMD
+)
+deploy_folder=$(tar chz -C compile . | ssh $target "bash -c '$copy_command'")
+
+execute_command=$(
+cat <<CMD
+{
+  cd $deploy_folder
   exit_status=0
   $prefix bash $debug install.sh || exit_status=\$?
-  rm -rf "\$deploy_folder"
+  rm -rf "$deploy_folder"
   exit \$exit_status
 }
 CMD
 )
-
-kickstart compile "$@"
-tar chz -C compile . | ssh $target "bash -c '$remote_command'"
+ssh $target "bash -c '$execute_command'"
