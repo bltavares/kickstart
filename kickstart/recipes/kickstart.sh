@@ -22,6 +22,16 @@ kickstart.mute() {
   return $?
 }
 
+kickstart.suppress_error() {
+  kickstart.info "Running \"$*\""
+  if kickstart.debugging; then
+    "$@"
+  else
+    "$@" 2>/dev/null
+  fi
+  return $?
+}
+
 kickstart.command_exists() {
   kickstart.mute which "$1"
 }
