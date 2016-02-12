@@ -56,6 +56,12 @@ brew tap bltavares/tap
 brew install --HEAD kickstart
 ```
 
+#### [Basher](https://github.com/basherpm/basher)
+
+```bash
+basher install bltavares/kickstart
+```
+
 ### Autocompletion
 
 To enable autocompletion run the following command:
