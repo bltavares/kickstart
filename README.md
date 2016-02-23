@@ -62,6 +62,16 @@ brew install --HEAD kickstart
 basher install bltavares/kickstart
 ```
 
+### Arch Linux
+
+`kickstart-git` is available on [aur](https://aur.archlinux.org/packages/kickstart-git).
+
+You can use the following command to install.
+
+```bash
+yaourt -S kickstart-git
+```
+
 ### Autocompletion
 
 To enable autocompletion run the following command:
