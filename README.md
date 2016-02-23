@@ -22,6 +22,29 @@ Autocompletion is enabled for the offline documentation.
 
 ### Installation
 
+#### Homebrew
+
+```bash
+brew tap bltavares/tap
+brew install --HEAD kickstart
+```
+
+#### [Basher](https://github.com/basherpm/basher)
+
+```bash
+basher install bltavares/kickstart
+```
+
+### Arch Linux
+
+`kickstart-git` is available on [aur](https://aur.archlinux.org/packages/kickstart-git).
+
+You can use the following command to install.
+
+```bash
+yaourt -S kickstart-git
+```
+
 #### Adding to the shell
 
 Add it to the path.
@@ -47,29 +70,6 @@ installation_path=/opt/kickstart
 
 git clone https://github.com/bltavares/kickstart.git $installation_path
 sudo ln -s $installation_path/bin/kickstart /usr/local/bin/kickstart
-```
-
-#### Homebrew
-
-```bash
-brew tap bltavares/tap
-brew install --HEAD kickstart
-```
-
-#### [Basher](https://github.com/basherpm/basher)
-
-```bash
-basher install bltavares/kickstart
-```
-
-### Arch Linux
-
-`kickstart-git` is available on [aur](https://aur.archlinux.org/packages/kickstart-git).
-
-You can use the following command to install.
-
-```bash
-yaourt -S kickstart-git
 ```
 
 ### Autocompletion
