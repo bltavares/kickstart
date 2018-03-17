@@ -1,4 +1,4 @@
 #!/bin/bash
 
 root_dir=$(kickstart root-dir)
-find "$root_dir"/lib -d 1 | cut -f2- -d'-'
+find "$root_dir"/lib | grep "kickstart-" | cut -f2- -d'-'
