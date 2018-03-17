@@ -33,7 +33,7 @@ kickstart.suppress_error() {
 }
 
 kickstart.command_exists() {
-  kickstart.mute which "$1"
+  which "$1" > /dev/null
 }
 
 kickstart.print_with_separator() {
