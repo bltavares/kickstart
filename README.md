@@ -4,7 +4,7 @@ Bash only provisioning tool.
 The idea is to use bash scripts to provision machines over ssh, with no client installation on the target.
 It provides some abstractions and functions that help you structure and write more readable bash scripts.
 
-For an example project, check [tty.space project](https://github.com/bltavares/tty.space) or
+For an example project, check [my homelab](https://github.com/bltavares/homelab), the [tty.space project](https://github.com/bltavares/tty.space) or
 [kickstart-baseline](https://github.com/bltavares/kickstart-baseline).
 
 ### Goal
