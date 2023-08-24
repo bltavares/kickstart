@@ -22,3 +22,7 @@ kickstart.package.install.yum() {
 kickstart.package.install.pacman() {
   kickstart.mute pacman -S --noconfirm "$*"
 }
+
+kickstart.package.install.zypper() {
+  kickstart.mute zypper install -y "$*"
+}

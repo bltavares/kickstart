@@ -22,3 +22,7 @@ kickstart.package.installed.yum() {
   done
   return 0
 }
+
+kickstart.package.installed.zypper() {
+  kickstart.mute zypper search --installed-only "$*"
+}

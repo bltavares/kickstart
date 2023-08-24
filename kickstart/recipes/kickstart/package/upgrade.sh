@@ -17,3 +17,7 @@ kickstart.package.upgrade.yum() {
 kickstart.package.upgrade.pacman() {
   kickstart.mute pacman -Suy --noconfirm
 }
+
+kickstart.package.upgrade.zypper() {
+  kickstart.mute zypper update -y
+}

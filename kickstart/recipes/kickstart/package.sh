@@ -3,7 +3,8 @@ kickstart.package.manager() {
   kickstart.command_exists brew && echo "brew" && return 0
   kickstart.command_exists yum && echo "yum" && return 0
   kickstart.command_exists pacman && echo "pacman" && return 0
-  kickstart.info "kickstart supports apt-get, yum, pacman or brew" && exit 1
+  kickstart.command_exists zypper && echo "zypper" && return 0
+  kickstart.info "kickstart supports apt-get, yum, pacman, zypper or brew" && exit 1
 }
 
 for recipe in recipes/kickstart/package/*.sh; do
